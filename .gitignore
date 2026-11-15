@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment Variables (CRITICAL: Keeps your DB & Cloudinary keys private)
+.env
+client/.env
+server/.env
+.env.local
+
+# Production Builds
+client/dist/
+build/
+
+# Logs & OS Files
+*.log
+.DS_Store
+Thumbs.db

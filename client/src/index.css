@@ -1,0 +1,301 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --bg-obsidian: #060d13;
+    --bg-surface: rgba(15, 25, 35, 0.72);
+    --border-glass: rgba(255, 255, 255, 0.09);
+    --glow-emerald: rgba(16, 185, 129, 0.25);
+    --glow-cyan: rgba(6, 182, 212, 0.22);
+    --glow-violet: rgba(139, 92, 246, 0.22);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-obsidian);
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.16) 0%, transparent 42%),
+      radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.14) 0%, transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.12) 0%, transparent 45%),
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
+    color: #f1f5f9;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.025em;
+    color: #ffffff !important;
+  }
+}
+
+/* Override Tailwind's light page wrappers to reveal the dark bio-tech canvas */
+.min-h-screen.bg-gray-50 {
+  background-color: transparent !important;
+}
+
+/* --- Typography Overrides for Dark Mode Readability --- */
+.text-gray-900 { color: #f8fafc !important; }
+.text-gray-800 { color: #e2e8f0 !important; }
+.text-gray-700 { color: #cbd5e1 !important; }
+.text-gray-600 { color: #94a3b8 !important; }
+.text-gray-500 { color: #64748b !important; }
+
+/* --- Frosted Obsidian Glass Navbar --- */
+nav {
+  background: rgba(6, 13, 19, 0.78) !important;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+nav a:first-child {
+  background: linear-gradient(135deg, #34d399 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem !important;
+  letter-spacing: -0.03em;
+  filter: drop-shadow(0 0 12px rgba(52, 211, 153, 0.35));
+}
+
+nav a:not(:first-child) {
+  color: #cbd5e1 !important;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+nav a:not(:first-child):hover {
+  color: #34d399 !important;
+  background: rgba(52, 211, 153, 0.08);
+}
+
+/* --- Translucent Glass Cards with Glowing Edge Highlights --- */
+.bg-white.rounded-xl,
+.bg-white.rounded-lg,
+.bg-white.p-4 {
+  background: linear-gradient(145deg, rgba(17, 28, 39, 0.85) 0%, rgba(10, 18, 26, 0.92) 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
+  border-radius: 1rem !important;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive Hover Glow on Cards */
+.grid > .bg-white.rounded-xl:hover,
+.grid > .bg-white.rounded-lg:hover {
+  transform: translateY(-5px) scale(1.005);
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.7),
+    0 0 25px -3px rgba(16, 185, 129, 0.22) !important;
+}
+
+/* --- Dashboard Icon Badges --- */
+.bg-emerald-100 {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.bg-blue-100 {
+  background: rgba(6, 182, 212, 0.15) !important;
+  color: #22d3ee !important;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+.bg-purple-100 {
+  background: rgba(139, 92, 246, 0.15) !important;
+  color: #a78bfa !important;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+/* --- Sleek Dark Form Inputs --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+  background-color: rgba(6, 13, 19, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 0.65rem !important;
+  padding: 0.65rem 0.9rem !important;
+  color: #f8fafc !important;
+  font-size: 0.925rem;
+  transition: all 0.2s ease;
+}
+
+input::placeholder {
+  color: #475569 !important;
+}
+
+input:hover,
+select:hover {
+  border-color: rgba(255, 255, 255, 0.24) !important;
+  background-color: rgba(10, 20, 30, 0.9) !important;
+}
+
+input:focus,
+select:focus {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), 0 0 15px rgba(16, 185, 129, 0.15) !important;
+  outline: none !important;
+}
+
+/* Fix date picker calendar icon color in dark mode */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
+/* --- Luminous Gradient Action Buttons --- */
+button,
+a[class*="bg-"] {
+  border-radius: 0.65rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.015em;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer;
+}
+
+/* Emerald Primary (Auth & OCR) */
+button.bg-emerald-600,
+a.bg-emerald-600 {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #022c22 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+button.bg-emerald-600:hover,
+a.bg-emerald-600:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(16, 185, 129, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  filter: brightness(1.08);
+}
+
+/* Cyan-Blue Optimizer */
+button.bg-blue-600,
+a.bg-blue-600 {
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%) !important;
+  color: #042f2e !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+button.bg-blue-600:hover,
+a.bg-blue-600:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(6, 182, 212, 0.55);
+  filter: brightness(1.08);
+}
+
+/* Electric Violet Vault */
+button.bg-purple-600,
+a.bg-purple-600 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+button.bg-purple-600:hover,
+a.bg-purple-600:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(139, 92, 246, 0.55);
+  filter: brightness(1.08);
+}
+
+/* Logout & Disabled Buttons */
+button.bg-red-50 {
+  background: rgba(239, 68, 68, 0.14) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+button.bg-red-50:hover {
+  background: rgba(239, 68, 68, 0.24) !important;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+}
+
+button.bg-gray-100,
+button:disabled {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #64748b !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* --- Alerts & Status Banners --- */
+.bg-red-50.border-l-4 {
+  background: rgba(239, 68, 68, 0.12) !important;
+  color: #fca5a5 !important;
+  border-color: #ef4444 !important;
+}
+
+.bg-emerald-50.border-l-4,
+.bg-blue-50 {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #6ee7b7 !important;
+  border-color: #10b981 !important;
+}
+
+.bg-amber-50.border-l-4 {
+  background: rgba(245, 158, 11, 0.12) !important;
+  color: #fcd34d !important;
+  border-color: #f59e0b !important;
+}
+
+/* --- File Dropzone --- */
+input[type="file"] {
+  border: 1.5px dashed rgba(52, 211, 153, 0.35) !important;
+  background: rgba(6, 13, 19, 0.6) !important;
+  color: #94a3b8 !important;
+  padding: 0.85rem !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.2s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #34d399 !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* --- Terminal JSON Output Blocks --- */
+pre {
+  background: #03070b !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.22) !important;
+  border-radius: 0.75rem !important;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Custom Dark Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #060d13;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
